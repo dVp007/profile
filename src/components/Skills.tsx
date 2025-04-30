@@ -1,18 +1,27 @@
+import React from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import TechnialSkills from "../../public/tech-skills.png";
+import {
+  Database,
+  Server,
+  Code,
+  Lock,
+  Cloud,
+  Terminal,
+  Layout,
+  Globe,
+} from "lucide-react";
 
-import React from 'react';
-import { Card, CardContent } from '@/components/ui/card';
-import { Database, Server, Code, Lock, Cloud, Terminal, Layout, Globe } from 'lucide-react';
-
-const SkillCard = ({ 
-  title, 
-  description, 
-  icon: Icon, 
-  skills 
-}: { 
-  title: string; 
-  description: string; 
-  icon: React.ElementType; 
-  skills: string[] 
+const SkillCard = ({
+  title,
+  description,
+  icon: Icon,
+  skills,
+}: {
+  title: string;
+  description: string;
+  icon: React.ElementType;
+  skills: string[];
 }) => {
   return (
     <Card className="bg-secondary/50 border-secondary hover:border-primary/50 transition-all duration-300">
@@ -26,8 +35,8 @@ const SkillCard = ({
         <p className="text-muted-foreground mb-4">{description}</p>
         <div className="flex flex-wrap gap-2">
           {skills.map((skill) => (
-            <span 
-              key={skill} 
+            <span
+              key={skill}
               className="text-xs px-2.5 py-1 rounded-full bg-background/80 border border-border"
             >
               {skill}
@@ -42,55 +51,60 @@ const SkillCard = ({
 const Skills = () => {
   const skillSets = [
     {
-      title: 'Languages',
-      description: 'Programming languages I work with daily',
+      title: "Languages",
+      description: "Programming languages I work with daily",
       icon: Code,
-      skills: ['JavaScript', 'TypeScript', 'Python', 'Go', 'Java', 'SQL']
+      skills: ["JavaScript", "TypeScript", "SQL"],
     },
     {
-      title: 'Databases',
-      description: 'DB systems I design and optimize',
+      title: "Databases",
+      description: "DB systems I design and optimize",
       icon: Database,
-      skills: ['PostgreSQL', 'MongoDB', 'Redis', 'MySQL', 'Elasticsearch']
+      skills: ["PostgreSQL", "MongoDB", "Redis", "MySQL", "Elasticsearch"],
     },
     {
-      title: 'Backend Frameworks',
-      description: 'Tools I use to build robust APIs',
+      title: "Backend Frameworks",
+      description: "Tools I use to build robust APIs",
       icon: Server,
-      skills: ['Node.js', 'Express', 'NestJS', 'Django', 'Spring Boot']
+      skills: ["Node.js", "Express", "NestJS"],
     },
     {
-      title: 'DevOps & Cloud',
-      description: 'Infrastructure and deployment',
+      title: "DevOps & Cloud",
+      description: "Infrastructure and deployment",
       icon: Cloud,
-      skills: ['Docker', 'Kubernetes', 'AWS', 'CI/CD', 'Terraform']
+      skills: ["Docker", "AWS", "CI/CD", "Terraform"],
     },
     {
-      title: 'Security',
-      description: 'Ensuring system security',
+      title: "Security",
+      description: "Ensuring system security",
       icon: Lock,
-      skills: ['OAuth', 'JWT', 'HTTPS', 'Rate Limiting', 'Input Validation']
+      skills: ["JWT", "HTTPS", "Rate Limiting"],
     },
     {
-      title: 'Architecture',
-      description: 'System design principles I follow',
+      title: "Architecture",
+      description: "System design principles I follow",
       icon: Layout,
-      skills: ['Microservices', 'Event-Driven', 'REST', 'GraphQL', 'gRPC']
-    }
+      skills: ["Microservices", "Event-Driven", "REST"],
+    },
   ];
 
   return (
     <section id="skills" className="py-16 bg-secondary/10">
       <div className="container">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Technical Skills</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            My toolbox for building scalable and reliable backend systems
-          </p>
+        <div className="flex justify-center items-center">
+          <div className="text-center">
+            <h2 className="text-3xl md:text-4xl font-bold ">
+              Technical Skills
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              My toolbox for building scalable and reliable backend systems
+            </p>
+          </div>
+          <img src={TechnialSkills} height={250} width={200} />
         </div>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {skillSets.map((skillSet) => (
-            <SkillCard 
+            <SkillCard
               key={skillSet.title}
               title={skillSet.title}
               description={skillSet.description}
