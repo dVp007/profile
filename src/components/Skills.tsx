@@ -91,16 +91,13 @@ const Skills = () => {
   return (
     <section id="skills" className="py-16 bg-secondary/10">
       <div className="container">
-        <div className="flex justify-center items-center">
-          <div className="text-center">
-            <h2 className="text-3xl md:text-4xl font-bold ">
-              Technical Skills
-            </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              My toolbox for building scalable and reliable backend systems
-            </p>
-          </div>
-          <img src={TechnialSkills} height={250} width={200} />
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Technical Skills
+          </h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            My toolbox for building scalable and reliable backend systems
+          </p>
         </div>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {skillSets.map((skillSet) => (

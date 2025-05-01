@@ -102,6 +102,7 @@ const Projects = () => {
         "Nextjs",
         "StoryBook",
         "Datadog",
+        "Docker",
       ],
       liveUrl: "https://www.akashicwallet.com/en-US",
       image: "/crypto-wallet.png",
@@ -118,38 +119,45 @@ const Projects = () => {
         "Redis",
         "AWS",
         "Terraform",
-        "jenkins",
+        "Jenkins",
       ],
       liveUrl: "https://www.myerrand.co.uk/",
     },
     {
-      title: "Auth Service",
+      title: "Nakul",
+      description: "Product listing and delivery platform.",
+      tags: [
+        "Node.js",
+        "Typescript",
+        "NestJs",
+        "PostgresSql",
+        "Redis",
+        "AWS",
+        "Terraform",
+        "Jenkins",
+        "Angular",
+      ],
+      liveUrl: "",
+    },
+    {
+      title: "EAM (Enterprise Aseet Management)",
       description:
-        "Secure authentication system with OAuth2 integration and role-based access control",
-      tags: ["TypeScript", "ExpressJS", "JWT", "OAuth2", "Redis"],
+        "SaaS product for empowering global wealth managers to manage their private assets.",
+      tags: ["Node.js", "LoopBack", "MySql", "Redis", "AWS", "jenkins"],
+    },
+    {
+      title: "Nearlaw",
+      description: "Smart Assistant for legal reasearch",
+      tags: [
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "AWS",
+        "Elasticsearch",
+        "Angular",
+      ],
       githubUrl: "#",
       liveUrl: "#",
-    },
-    {
-      title: "Event Scheduling Engine",
-      description:
-        "Scalable system for managing and optimizing event-based workloads",
-      tags: ["Go", "RabbitMQ", "Kubernetes", "gRPC", "Redis"],
-      githubUrl: "#",
-    },
-    {
-      title: "GraphQL API Gateway",
-      description:
-        "Unified GraphQL interface for multiple microservices with caching",
-      tags: ["Node.js", "GraphQL", "Apollo", "Redis", "Docker"],
-      githubUrl: "#",
-      liveUrl: "#",
-    },
-    {
-      title: "Monitoring Dashboard",
-      description: "Real-time system monitoring with alerts and visualization",
-      tags: ["TypeScript", "Prometheus", "Grafana", "WebSockets", "React"],
-      githubUrl: "#",
     },
   ];
 
