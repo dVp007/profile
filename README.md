@@ -1,22 +1,16 @@
-# Welcome to your Lovable project
+# Welcome to my portfolio website code
 
 ## Project info
 
-**URL**: https://lovable.dev/projects/1d0057b5-0525-48e8-ad79-a0d8f157b3c9
+**URL**: https://dvp007.github.io/profile/
 
 ## How can I edit this code?
 
 There are several ways of editing your application.
 
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/1d0057b5-0525-48e8-ad79-a0d8f157b3c9) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
 **Use your preferred IDE**
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+If you want to work locally using your own IDE, you can fork and then clone this repo and push changes.
 
 The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
@@ -62,12 +56,13 @@ This project is built with:
 
 ## How can I deploy this project?
 
-Simply open [Lovable](https://lovable.dev/projects/1d0057b5-0525-48e8-ad79-a0d8f157b3c9) and click on Share -> Publish.
+```sh
+# Run
+npm run deploy
 
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+# Following steps must be executed on github
+- Go to your repository on GitHub.
+- Navigate to Settings > Pages.
+- Under Source, select the gh-pages branch.
+- Save the settings.
+```
