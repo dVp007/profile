@@ -105,7 +105,6 @@ const Projects = () => {
         "Docker",
       ],
       liveUrl: "https://www.akashicwallet.com/en-US",
-      image: "/crypto-wallet.png",
     },
     {
       title: "My Errand",
@@ -137,7 +136,6 @@ const Projects = () => {
         "Jenkins",
         "Angular",
       ],
-      liveUrl: "",
     },
     {
       title: "EAM (Enterprise Aseet Management)",
@@ -156,8 +154,6 @@ const Projects = () => {
         "Elasticsearch",
         "Angular",
       ],
-      githubUrl: "#",
-      liveUrl: "#",
     },
   ];
 

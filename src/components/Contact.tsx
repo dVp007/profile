@@ -39,7 +39,7 @@ const Contact = () => {
                   <div>
                     <p className="text-sm font-medium">Email</p>
                     <p className="text-sm text-muted-foreground">
-                      your.email@example.com
+                      dharmilp03@gmail.com
                     </p>
                   </div>
                 </div>
@@ -51,7 +51,7 @@ const Contact = () => {
                   <div>
                     <p className="text-sm font-medium">GitHub</p>
                     <p className="text-sm text-muted-foreground">
-                      github.com/yourusername
+                      github.com/dVp007
                     </p>
                   </div>
                 </div>
@@ -63,12 +63,12 @@ const Contact = () => {
                   <div>
                     <p className="text-sm font-medium">LinkedIn</p>
                     <p className="text-sm text-muted-foreground">
-                      linkedin.com/in/yourusername
+                      linkedin.com/in/dharmil-parekh/
                     </p>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-3">
+                {/* <div className="flex items-center gap-3">
                   <div className="p-2 rounded-full bg-primary/20 text-primary">
                     <MessageSquare className="h-5 w-5" />
                   </div>
@@ -78,7 +78,7 @@ const Contact = () => {
                       @yourusername
                     </p>
                   </div>
-                </div>
+                </div> */}
               </div>
             </CardContent>
           </Card>
