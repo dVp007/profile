@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <defs>
+    <linearGradient id="neonCyan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00FFD1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00B4D8;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="neonMagenta" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF006E;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FF5400;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="neonGreen" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#39FF14;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00FF41;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="glowStrong">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Outer circuit ring -->
+  <circle cx="60" cy="60" r="55" fill="none" stroke="url(#neonCyan)" stroke-width="2" stroke-dasharray="8 4" opacity="0.6">
+    <animateTransform attributeName="transform" type="rotate" from="0 60 60" to="360 60 60" dur="20s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Inner circuit ring -->
+  <circle cx="60" cy="60" r="45" fill="none" stroke="url(#neonMagenta)" stroke-width="1.5" stroke-dasharray="4 6" opacity="0.5">
+    <animateTransform attributeName="transform" type="rotate" from="360 60 60" to="0 60 60" dur="15s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Circuit nodes - left side -->
+  <circle cx="20" cy="60" r="3" fill="url(#neonCyan)" filter="url(#glow)"/>
+  <circle cx="30" cy="40" r="2" fill="url(#neonCyan)" filter="url(#glow)"/>
+  <circle cx="35" cy="75" r="2.5" fill="url(#neonMagenta)" filter="url(#glow)"/>
+  <circle cx="25" cy="85" r="2" fill="url(#neonGreen)" filter="url(#glow)"/>
+  
+  <!-- Circuit nodes - right side -->
+  <circle cx="100" cy="60" r="3" fill="url(#neonCyan)" filter="url(#glow)"/>
+  <circle cx="90" cy="40" r="2" fill="url(#neonCyan)" filter="url(#glow)"/>
+  <circle cx="85" cy="75" r="2.5" fill="url(#neonMagenta)" filter="url(#glow)"/>
+  <circle cx="95" cy="85" r="2" fill="url(#neonGreen)" filter="url(#glow)"/>
+  
+  <!-- Circuit nodes - top/bottom -->
+  <circle cx="60" cy="15" r="2.5" fill="url(#neonCyan)" filter="url(#glow)"/>
+  <circle cx="60" cy="105" r="2.5" fill="url(#neonMagenta)" filter="url(#glow)"/>
+  
+  <!-- Circuit lines -->
+  <line x1="20" y1="60" x2="30" y2="40" stroke="url(#neonCyan)" stroke-width="1" opacity="0.4"/>
+  <line x1="30" y1="40" x2="45" y2="35" stroke="url(#neonCyan)" stroke-width="1" opacity="0.3"/>
+  <line x1="35" y1="75" x2="50" y2="70" stroke="url(#neonMagenta)" stroke-width="1" opacity="0.4"/>
+  <line x1="100" y1="60" x2="90" y2="40" stroke="url(#neonCyan)" stroke-width="1" opacity="0.4"/>
+  <line x1="90" y1="40" x2="75" y2="35" stroke="url(#neonCyan)" stroke-width="1" opacity="0.3"/>
+  <line x1="85" y1="75" x2="70" y2="70" stroke="url(#neonMagenta)" stroke-width="1" opacity="0.4"/>
+  <line x1="60" y1="15" x2="60" y2="35" stroke="url(#neonCyan)" stroke-width="1" opacity="0.5"/>
+  <line x1="60" y1="105" x2="60" y2="85" stroke="url(#neonMagenta)" stroke-width="1" opacity="0.5"/>
+  
+  <!-- Neural network dots (brain/AI representation) -->
+  <circle cx="50" cy="50" r="4" fill="url(#neonCyan)" filter="url(#glowStrong)"/>
+  <circle cx="70" cy="50" r="4" fill="url(#neonCyan)" filter="url(#glowStrong)"/>
+  <circle cx="50" cy="70" r="4" fill="url(#neonMagenta)" filter="url(#glowStrong)"/>
+  <circle cx="70" cy="70" r="4" fill="url(#neonMagenta)" filter="url(#glowStrong)"/>
+  <circle cx="60" cy="60" r="5" fill="url(#neonGreen)" filter="url(#glowStrong)"/>
+  
+  <!-- Neural connections -->
+  <line x1="54" y1="50" x2="66" y2="50" stroke="url(#neonCyan)" stroke-width="2" opacity="0.8"/>
+  <line x1="50" y1="54" x2="50" y2="66" stroke="url(#neonCyan)" stroke-width="2" opacity="0.8"/>
+  <line x1="70" y1="54" x2="70" y2="66" stroke="url(#neonMagenta)" stroke-width="2" opacity="0.8"/>
+  <line x1="54" y1="70" x2="66" y2="70" stroke="url(#neonMagenta)" stroke-width="2" opacity="0.8"/>
+  <line x1="52" y1="52" x2="58" y2="58" stroke="url(#neonGreen)" stroke-width="1.5" opacity="0.7"/>
+  <line x1="68" y1="52" x2="62" y2="58" stroke="url(#neonGreen)" stroke-width="1.5" opacity="0.7"/>
+  <line x1="52" y1="68" x2="58" y2="62" stroke="url(#neonGreen)" stroke-width="1.5" opacity="0.7"/>
+  <line x1="68" y1="68" x2="62" y2="62" stroke="url(#neonGreen)" stroke-width="1.5" opacity="0.7"/>
+  
+  <!-- Pulsing animation on center -->
+  <circle cx="60" cy="60" r="8" fill="none" stroke="url(#neonGreen)" stroke-width="1" opacity="0.5">
+    <animate attributeName="r" values="8;12;8" dur="2s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.5;0.2;0.5" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Code brackets < > around the neural net -->
+  <text x="28" y="65" font-family="monospace" font-size="20" font-weight="bold" fill="url(#neonCyan)" filter="url(#glow)">&lt;</text>
+  <text x="82" y="65" font-family="monospace" font-size="20" font-weight="bold" fill="url(#neonMagenta)" filter="url(#glow)">/&gt;</text>
+  
+  <!-- Terminal cursor -->
+  <rect x="45" y="85" width="30" height="3" fill="url(#neonGreen)" opacity="0.8">
+    <animate attributeName="opacity" values="0.8;0.2;0.8" dur="1s" repeatCount="indefinite"/>
+  </rect>
+</svg>
