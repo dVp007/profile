@@ -1,9 +1,15 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Github, ExternalLink, Terminal, Database, Server, Globe, Bot } from "lucide-react";
-import { useGesture } from "react-use-gesture";
-import { useSpring, animated, to } from "@react-spring/web";
+import {
+  Github,
+  ExternalLink,
+  Terminal,
+  Database,
+  Server,
+  Globe,
+  Bot,
+} from "lucide-react";
 
 interface Project {
   title: string;
@@ -15,95 +21,29 @@ interface Project {
   accentColor?: string;
 }
 
-const calcX = (y: number, ly: number) =>
-  -(y - ly - window.innerHeight / 2) / 20;
-const calcY = (x: number, lx: number) =>
-  (x - lx - window.innerWidth / 2) / 25;
-
 const ProjectCard = ({ project }: { project: Project }) => {
   const Icon = project.icon || Terminal;
   const accentColor = project.accentColor || "hsl(174, 100%, 50%)";
 
-  useEffect(() => {
-    const preventDefault = (e: Event) => e.preventDefault();
-    document.addEventListener("gesturestart", preventDefault);
-    document.addEventListener("gesturechange", preventDefault);
-    return () => {
-      document.removeEventListener("gesturestart", preventDefault);
-      document.removeEventListener("gesturechange", preventDefault);
-    };
-  }, []);
-
-  const domTarget = useRef(null);
-  const [{ x, y, rotateX, rotateY, rotateZ, scale }, api] = useSpring(
-    () => ({
-      rotateX: 0,
-      rotateY: 0,
-      rotateZ: 0,
-      scale: 1,
-      x: 0,
-      y: 0,
-      config: { mass: 5, tension: 350, friction: 40 },
-    }),
-  );
-
-  useGesture(
-    {
-      onDrag: ({ active, offset: [x, y] }) =>
-        api({ x, y, rotateX: 0, rotateY: 0, scale: active ? 1 : 1.05 }),
-      onMove: ({ xy: [px, py], dragging }) =>
-        !dragging &&
-        api({
-          rotateX: calcX(py, y.get()),
-          rotateY: calcY(px, x.get()),
-          scale: 1.05,
-        }),
-      onHover: ({ hovering }) =>
-        !hovering && api({ rotateX: 0, rotateY: 0, scale: 1 }),
-    },
-    { domTarget, eventOptions: { passive: false } },
-  );
-
   return (
-    <animated.div
-      ref={domTarget}
-      style={{
-        transform: "perspective(1000px)",
-        x,
-        y,
-        scale,
-        rotateX,
-        rotateY,
-        rotateZ,
-      }}
-      className="group"
-    >
-      <div className="relative h-full rounded-xl overflow-hidden border transition-all duration-500 group-hover:border-opacity-100"
+    <div>
+      <div
+        className="relative h-full rounded-xl overflow-hidden border"
         style={{
-          backgroundColor: 'var(--card-bg)',
+          backgroundColor: "var(--card-bg)",
           borderColor: `${accentColor}40`,
         }}
       >
-        <div
-          className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-          style={{
-            background: `linear-gradient(135deg, ${accentColor}08 0%, transparent 50%, ${accentColor}05 100%)`,
-          }}
-        />
-
         <div className="relative p-6 space-y-4">
           <div className="flex items-start justify-between">
             <div
-              className="p-3 rounded-lg border transition-all duration-300 group-hover:scale-110"
+              className="p-3 rounded-lg border"
               style={{
                 backgroundColor: `${accentColor}15`,
                 borderColor: `${accentColor}40`,
               }}
             >
-              <Icon
-                className="h-6 w-6"
-                style={{ color: accentColor }}
-              />
+              <Icon className="h-6 w-6" style={{ color: accentColor }} />
             </div>
 
             <div className="flex gap-2">
@@ -112,7 +52,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
                   href={project.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 rounded-lg border border-[hsl(var(--neon-cyan))]/30 text-[hsl(var(--neon-cyan))] hover:bg-[hsl(var(--neon-cyan))]/10 transition-all duration-300"
+                  className="p-2 rounded-lg border border-[hsl(var(--neon-cyan))]/30 text-[hsl(var(--neon-cyan))] hover:bg-[hsl(var(--neon-cyan))]/10"
                 >
                   <Github className="h-4 w-4" />
                 </a>
@@ -122,7 +62,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
                   href={project.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 rounded-lg border border-[hsl(var(--neon-cyan))]/30 text-[hsl(var(--neon-cyan))] hover:bg-[hsl(var(--neon-cyan))]/10 transition-all duration-300"
+                  className="p-2 rounded-lg border border-[hsl(var(--neon-cyan))]/30 text-[hsl(var(--neon-cyan))] hover:bg-[hsl(var(--neon-cyan))]/10"
                 >
                   <ExternalLink className="h-4 w-4" />
                 </a>
@@ -131,7 +71,8 @@ const ProjectCard = ({ project }: { project: Project }) => {
           </div>
 
           <div>
-            <h3 className="text-xl font-bold font-['Orbitron'] tracking-wider mb-2 transition-all duration-300"
+            <h3
+              className="text-xl font-bold font-['Orbitron'] tracking-wider mb-2"
               style={{ color: accentColor }}
             >
               {project.title}
@@ -145,7 +86,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
             {project.tags.slice(0, 6).map((tag) => (
               <span
                 key={tag}
-                className="text-xs px-2 py-1 rounded border transition-all duration-300 group-hover:translate-y-[-1px]"
+                className="text-xs px-2 py-1 rounded border"
                 style={{
                   backgroundColor: `${accentColor}08`,
                   borderColor: `${accentColor}30`,
@@ -159,9 +100,9 @@ const ProjectCard = ({ project }: { project: Project }) => {
               <span
                 className="text-xs px-2 py-1 rounded border"
                 style={{
-                  backgroundColor: 'hsl(var(--muted))',
-                  borderColor: 'hsl(var(--muted-foreground))/30',
-                  color: 'hsl(var(--muted-foreground))',
+                  backgroundColor: "hsl(var(--muted))",
+                  borderColor: "hsl(var(--muted-foreground))/30",
+                  color: "hsl(var(--muted-foreground))",
                 }}
               >
                 +{project.tags.length - 6}
@@ -169,13 +110,8 @@ const ProjectCard = ({ project }: { project: Project }) => {
             )}
           </div>
         </div>
-
-        <div
-          className="h-1 w-0 group-hover:w-full transition-all duration-700 ease-out"
-          style={{ backgroundColor: accentColor }}
-        />
       </div>
-    </animated.div>
+    </div>
   );
 };
 
@@ -200,7 +136,7 @@ const Projects = () => {
       githubUrl: undefined,
       liveUrl: "https://www.akashicwallet.com/en-US",
       icon: Server,
-      accentColor: "hsl(330, 100%, 58%)",
+      accentColor: "#B74732",
     },
     {
       title: "My Errand",
@@ -219,7 +155,7 @@ const Projects = () => {
       ],
       liveUrl: "https://www.myerrand.co.uk/",
       icon: Globe,
-      accentColor: "hsl(217, 85%, 55%)",
+      accentColor: "#356F52",
     },
     {
       title: "Nearlaw",
@@ -236,7 +172,7 @@ const Projects = () => {
         "AI/ML",
       ],
       icon: Bot,
-      accentColor: "hsl(120, 100%, 50%)",
+      accentColor: "#B74732",
     },
     {
       title: "EAM Platform",
@@ -252,7 +188,7 @@ const Projects = () => {
         "Multi-tenancy",
       ],
       icon: Database,
-      accentColor: "hsl(210, 100%, 50%)",
+      accentColor: "#356F52",
     },
     {
       title: "AI Research",
@@ -269,7 +205,7 @@ const Projects = () => {
       ],
       githubUrl: "https://github.com/dVp007",
       icon: Terminal,
-      accentColor: "hsl(280, 80%, 60%)",
+      accentColor: "#B74732",
     },
     {
       title: "Distributed Systems",
@@ -285,14 +221,14 @@ const Projects = () => {
         "CQRS",
       ],
       icon: Server,
-      accentColor: "hsl(45, 100%, 50%)",
+      accentColor: "#356F52",
     },
   ];
 
   return (
     <section id="projects" className="py-24 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-[hsl(var(--background))] via-transparent to-[hsl(var(--background))] opacity-50" />
-      
+
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[hsl(var(--neon-magenta))]/30 bg-[hsl(var(--neon-magenta))]/5 mb-6">

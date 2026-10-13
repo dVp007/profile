@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail, Terminal } from "lucide-react";
+import { BookOpenText, Github, Linkedin, Mail, Terminal } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -6,17 +6,10 @@ const Footer = () => {
   return (
     <footer className="py-12 border-t border-[hsl(var(--neon-cyan))]/20 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--background))] to-transparent" />
-      
+
       <div className="container mx-auto px-4 relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-center gap-8">
-          <div className="flex items-center gap-4 group">
-            <div className="relative w-10 h-10 transition-transform duration-300 group-hover:scale-110">
-              <img
-                src={import.meta.env.PROD ? "/profile/logo.svg" : "/logo.svg"}
-                alt="DP Logo"
-                className="w-full h-full object-contain"
-              />
-            </div>
+          <div className="flex items-center gap-4">
             <div>
               <span className="text-lg font-bold font-['Orbitron'] text-[hsl(var(--neon-cyan))] tracking-wider">
                 DHARMIL
@@ -44,6 +37,15 @@ const Footer = () => {
               className="p-3 rounded-lg border border-[hsl(var(--neon-cyan))]/30 text-[hsl(var(--neon-cyan))] hover:bg-[hsl(var(--neon-cyan))]/10 hover:border-[hsl(var(--neon-cyan))] transition-all duration-300"
             >
               <Linkedin className="h-5 w-5" />
+            </a>
+            <a
+              href="https://medium.com/@dharmilp03"
+              target="_blank"
+              rel="me noopener noreferrer"
+              aria-label="Dharmil Parekh on Medium"
+              className="p-3 rounded-lg border border-[hsl(var(--neon-cyan))]/30 text-[hsl(var(--neon-cyan))] hover:bg-[hsl(var(--neon-cyan))]/10 hover:border-[hsl(var(--neon-cyan))] transition-all duration-300"
+            >
+              <BookOpenText className="h-5 w-5" />
             </a>
             <a
               href="mailto:dharmilp03@gmail.com"

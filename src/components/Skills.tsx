@@ -27,33 +27,24 @@ interface SkillCategory {
   accentColor: string;
 }
 
-const SkillCard = ({
-  category,
-  index,
-}: {
-  category: SkillCategory;
-  index: number;
-}) => {
+const SkillCard = ({ category }: { category: SkillCategory }) => {
   const Icon = category.icon;
 
   return (
-    <div
-      className="animate-in card-cyber rounded-xl overflow-hidden group"
-      style={{ animationDelay: `${index * 0.1}s` }}
-    >
-      <div className="p-6 space-y-4" style={{ backgroundColor: 'var(--card-bg)' }}>
+    <div className="card-cyber rounded-xl overflow-hidden">
+      <div
+        className="p-6 space-y-4"
+        style={{ backgroundColor: "var(--card-bg)" }}
+      >
         <div className="flex items-center gap-4">
           <div
-            className="p-3 rounded-lg border group-hover:scale-110 transition-transform duration-300"
+            className="p-3 rounded-lg border"
             style={{
               backgroundColor: `${category.accentColor}15`,
               borderColor: `${category.accentColor}40`,
             }}
           >
-            <Icon
-              className="h-6 w-6 transition-all duration-300"
-              style={{ color: category.accentColor }}
-            />
+            <Icon className="h-6 w-6" style={{ color: category.accentColor }} />
           </div>
           <div>
             <h3 className="text-lg font-bold font-['Orbitron'] tracking-wider">
@@ -69,7 +60,7 @@ const SkillCard = ({
           {category.skills.map((skill) => (
             <span
               key={skill}
-              className="text-xs px-3 py-1.5 rounded border group-hover:translate-y-[-2px] transition-all duration-300"
+              className="text-xs px-3 py-1.5 rounded border"
               style={{
                 backgroundColor: `${category.accentColor}08`,
                 borderColor: `${category.accentColor}30`,
@@ -101,7 +92,7 @@ const Skills = () => {
         "Hugging Face",
         "PyTorch",
       ],
-      accentColor: "hsl(330, 100%, 58%)",
+      accentColor: "#B74732",
     },
     {
       title: "Agentic AI",
@@ -117,7 +108,7 @@ const Skills = () => {
         "Task Decomposition",
         "Self-Reflection",
       ],
-      accentColor: "hsl(120, 100%, 50%)",
+      accentColor: "#356F52",
     },
     {
       title: "Backend & APIs",
@@ -133,7 +124,7 @@ const Skills = () => {
         "gRPC",
         "WebSockets",
       ],
-      accentColor: "hsl(217, 85%, 55%)",
+      accentColor: "#B74732",
     },
     {
       title: "Databases",
@@ -149,7 +140,7 @@ const Skills = () => {
         "Faiss",
         "Pinecone",
       ],
-      accentColor: "hsl(210, 100%, 50%)",
+      accentColor: "#356F52",
     },
     {
       title: "DevOps & Cloud",
@@ -165,7 +156,7 @@ const Skills = () => {
         "EC2",
         "Lambda",
       ],
-      accentColor: "hsl(45, 100%, 50%)",
+      accentColor: "#B74732",
     },
     {
       title: "System Design",
@@ -181,7 +172,7 @@ const Skills = () => {
         "CDN",
         "Load Balancing",
       ],
-      accentColor: "hsl(280, 80%, 60%)",
+      accentColor: "#356F52",
     },
     {
       title: "Programming",
@@ -197,7 +188,7 @@ const Skills = () => {
         "Rust",
         "Java",
       ],
-      accentColor: "hsl(265, 70%, 55%)",
+      accentColor: "#B74732",
     },
     {
       title: "AI Infrastructure",
@@ -213,14 +204,14 @@ const Skills = () => {
         "Triton",
         "ONNX",
       ],
-      accentColor: "hsl(330, 100%, 58%)",
+      accentColor: "#356F52",
     },
     {
       title: "Version Control",
       description: "Source control & collaboration",
       icon: GitBranch,
       skills: ["Git", "GitHub", "GitLab", "Bitbucket", "Semantic Versioning"],
-      accentColor: "hsl(20, 100%, 50%)",
+      accentColor: "#B74732",
     },
   ];
 
@@ -238,42 +229,23 @@ const Skills = () => {
           </div>
 
           <h2 className="text-4xl md:text-5xl font-bold font-['Orbitron'] mb-4">
-            <span className="text-glow-cyan text-[hsl(var(--neon-cyan))]">Skills</span>
+            <span className="text-glow-cyan text-[hsl(var(--neon-cyan))]">
+              Skills
+            </span>
             <span className="text-[hsl(var(--foreground))]"> & </span>
             <span className="text-[hsl(var(--neon-magenta))]">Expertise</span>
           </h2>
 
           <p className="text-[hsl(var(--muted-foreground))] max-w-2xl mx-auto">
-            A comprehensive toolkit spanning AI/ML, backend systems, and
-            cloud infrastructure — built over years of shipping production
-            systems.
+            A comprehensive toolkit spanning AI/ML, backend systems, and cloud
+            infrastructure — built over years of shipping production systems.
           </p>
         </div>
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {skillCategories.map((category, index) => (
-            <SkillCard key={category.title} category={category} index={index} />
+          {skillCategories.map((category) => (
+            <SkillCard key={category.title} category={category} />
           ))}
-        </div>
-
-        <div className="mt-16 p-8 rounded-2xl border border-[hsl(var(--neon-cyan))]/20 bg-[var(--card-bg)] backdrop-blur-sm">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="text-center md:text-left">
-              <h3 className="text-xl font-bold font-['Orbitron'] text-[hsl(var(--neon-cyan))] mb-2">
-                Current Focus Areas
-              </h3>
-              <p className="text-[hsl(var(--muted-foreground))]">
-                Deep diving into multi-modal AI, autonomous agents, and
-                real-time ML inference
-              </p>
-            </div>
-            <div className="flex flex-wrap justify-center gap-3">
-              <span className="tag-ai">Generative AI</span>
-              <span className="tag-cyber">RAG Systems</span>
-              <span className="tag-ai">Agentic AI</span>
-              <span className="tag-cyber">MLOps</span>
-            </div>
-          </div>
         </div>
       </div>
     </section>
